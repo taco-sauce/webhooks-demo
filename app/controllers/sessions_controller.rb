@@ -1,6 +1,10 @@
 require 'platform-api'
 
 class SessionsController < ApplicationController
+  def auth
+
+  end
+
   def new
     if ENV['HEROKU_OAUTH_ID'] && ENV['HEROKU_OAUTH_SECRET']
       redirect_to "/auth/heroku"
@@ -24,6 +28,5 @@ class SessionsController < ApplicationController
 
   def logout
     session.clear
-    redirect_to "https://id.heroku.com/logout"
   end
 end
